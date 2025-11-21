@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My portfolio</title>
+    <link rel="stylesheet" href="pi.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+
+<body>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    (function() {
+        emailjs.init("k2bwtTpSfM1iHNmAB"); // Replace with your User ID
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var params = {
+            name: document.querySelector('input[name="name"]').value,
+            email: document.querySelector('input[name="email"]').value,
+            message: document.querySelector('textarea[name="message"]').value
+        };
+        
+console.log("params:", params); // Tambahkan ini
+        const serviceID = "service_am4zr55"; // Replace with your Service ID
+        const templateID = "template_f5fysm8"; // Replace with your Template ID
+
+console.log("serviceID:", serviceID); // Tambahkan ini
+     console.log("templateID:", templateID); // Tambahkan ini
+        emailjs.send(serviceID, templateID, params)
+            .then(res => {
+                alert("Message sent successfully!");
+                document.querySelector('.contact-form').reset(); // Clear the form
+            })
+            .catch(err => {
+                console.error(err);
+                alert("An error occurred, Please try again.");
+            });
+    });
+</script>
+    <header>
+        <nav>
+            <div class="logo">Naaaverse</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+       <!-- <div class="hero-content animate-left"> -->
+            <h1>Hai, I'm naaaverse</h1>
+            <p>I am a front-end person passionate about creating beautiful, easy-to-use web applications.</p>
+            <a href="#portfolio" class="cta-button">View My Portfolio</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About me</h2>
+        <div class="about-content">
+            <img src="1.jpg" alt="Foto Anda">
+            <p>beginner front-end developer.</p>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <h2>My Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item float-on-scroll">
+                <img src="pro.jpg" alt="Proyek 1">
+                <h3>game cute ball</h3>
+                <p>This is a game ball with a pretty girl.</p>
+                <a href="g.html" class="project-link">click</a>
+            </div>
+     
+            <div class="portfolio-item float-on-scroll">
+                <img src="h.jpg" alt="Proyek 2">
+                <h3>To do list</h3>
+                <p>You can write your daily activities here, it's fun!</p>
+                <a href="t.html" class="project-link">click</a>
+            </div>
+        
+            <div class="portfolio-item float-on-scroll">
+                <img src="pro.jpg" alt="Proyek 3">
+                <h3>Question</h3>
+                <p>A little question about general knowledge.</p> 
+                <a href="q.html" class="project-link">click</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>My Contact</h2>
+        <form id="contact-form" method="post" class="contact-form">
+
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send message</button>
+        </form>
+    </section>
+
+    
+     <!--    <script src="script.js"><ipt> -->
+</body>
+<footer>© 2025 naaverse</footer>
+</html>
